@@ -9,7 +9,7 @@ def navigate(context):
     context.ctx = context.browser.new_context()
     context.page = context.ctx.new_page()
     url = "https://www.amazon.in/"
-    context.page.goto(url)
+    context.page.goto(url, wait_until="domcontentloaded")
 
 
 # Scenario 1: Product desired by user exists
@@ -31,23 +31,23 @@ def prod_details(context):
 # Scenario 2: Product desired by user does not exists
 
 
-@when("I enter the details of a product")
-def enter_details_not_exist(context):
-    context.page.fill(
-        '//input[@placeholder="Search Amazon.in"]',
-        "ccccccccccccccccccccccccccccccccccccccccccccccccc",
-    )
-    context.page.click('//input[@id="nav-search-submit-button"]')
-
-
-@then("It should give me an error message")
-def error_message(context):
-    context.page.wait_for_selector(
-        '//span[contains(text(), "No results for")]/following-sibling::span'
-    )
-    context.page.wait_for_timeout(3000)
-    context.browser.close()
-    context.playwright.stop()
+# @when("I enter the details of a product")
+# def enter_details_not_exist(context):
+#     context.page.fill(
+#         '//input[@placeholder="Search Amazon.in"]',
+#         "allure",
+#     )
+#     context.page.click('//input[@id="nav-search-submit-button"]')
+#
+#
+# @then("It should give me an error message")
+# def error_message(context):
+#     context.page.wait_for_selector(
+#         '//span[contains(text(), "No results for")]/following-sibling::span'
+#     )
+#     context.page.wait_for_timeout(3000)
+#     context.browser.close()
+#     context.playwright.stop()
 
 
 # Scenario 3: A product is added to cart
@@ -80,14 +80,13 @@ def add_to_cart(context):
     context.page.click("(//input[@id='add-to-cart-button'])[2]")
     context.page.wait_for_selector('//h1[contains(text(), "Added to cart")]')
     context.page.click("//span[@id='sw-gtc']//a")
-    context.page.wait_for_selector(
-        '//input[@data-feature-id="proceed-to-checkout-action"]'
-    )
-    context.page.wait_for_timeout(3000)
+    context.page.goto("https://www.amazon.in/gp/cart/view.html")
+    context.page.click('//input[@data-feature-id="proceed-to-checkout-action"]')
+
+
+@then("I should see the sign up page")
+def signup_page(context):
+    context.page.wait_for_load_state("load")
+    context.page.wait_for_selector('//h1[contains(text(), "Sign in")]')
     context.browser.close()
     context.playwright.stop()
-
-
-# # Scenario 4: To checkout products
-# @given("The product is added to cart")
-# def checkout_cart(context):
