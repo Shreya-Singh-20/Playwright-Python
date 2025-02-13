@@ -27,7 +27,7 @@ def step_open_amazon(context):
     )
     context.ctx = context.browser.new_context(no_viewport=True)
     context.page = context.browser.new_page()
-    context.page.goto("http://www.amazon.in")
+    context.page.goto("https://www.amazon.in")
 
 
 @when('I click on "{menu_option}" from the header')
