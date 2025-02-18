@@ -8,7 +8,7 @@ Feature: Amazon Mobile Store Flow
     Examples:
       | BigTab  | subTab                  |   middleTab   |
       | Mobiles | Laptops & Accessories |    Lenovo       |
-      | Electronics | TV & Home Entertainment |    Mi     |
+      | Electronics | Audio            |   Mivi       |
 #  @Lenovo
 #  Scenario: Lenovo Tab Opens
 #    Given I click on the mobile tab
