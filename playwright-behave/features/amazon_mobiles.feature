@@ -7,8 +7,9 @@ Feature: Amazon Mobile Store Flow
     Then I click on "<middleTab>" First product should be selected and added to cart
     Examples:
       | BigTab  | subTab                  |   middleTab   |
-      | Mobiles | Laptops & Accessories |    Lenovo       |
+      | Mobiles | Laptops & Accessories |   Apple       |
       | Electronics | Audio            |   Mivi       |
+
 #  @Lenovo
 #  Scenario: Lenovo Tab Opens
 #    Given I click on the mobile tab
