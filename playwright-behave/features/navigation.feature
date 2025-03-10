@@ -18,6 +18,6 @@ Feature: Navigation from Header
     | Customer Service | https://www.amazon.in/gp/help/customer/display.html?nodeId=200507590&ref_=nav_cs_help               |
     | Electronics      | https://www.amazon.in/electronics/b/?ie=UTF8&node=976419031&ref_=nav_cs_electronics                 |
     | Amazon Pay       | https://www.amazon.in/amazonpay/home?ref_=nav_cs_apay                                               |
-    | Prime            | https://www.amazon.in/amazonprime?ref_=nav_cs_primelink_nonmember                                   |
+#    | Prime            | https://www.amazon.in/amazonprime?ref_=nav_cs_primelink_nonmember                                   |
     | New Releases     | https://www.amazon.in/gp/new-releases/?ref_=nav_cs_newreleases                                      |
-    | Home & Kitchen   | https://www.amazon.in/Home-Kitchen/b/?ie=UTF8&node=976442031&ref_=nav_cs_home                       |
+#    | Home & Kitchen   | https://www.amazon.in/Home-Kitchen/b/?ie=UTF8&node=976442031&ref_=nav_cs_home                       |
