@@ -30,7 +30,7 @@ def select_country(context):
     context.page.wait_for_selector(
         "//input[@aria-labelledby='icp-save-button-announce']"
     ).click()
-    context.page.wait_for_timeout(3000)
+    context.page.wait_for_timeout(1000)
 
 
 @then("The country flag is shown on the home page")

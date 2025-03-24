@@ -9,7 +9,7 @@ def navigate(context):
     # context.ctx = context.browser.new_context()
     # context.page = context.ctx.new_page()
     url = "https://www.amazon.in/"
-    context.page.goto(url, wait_until="domcontentloaded")
+    context.page.goto(url, wait_until="load")
 
 
 @when("I enter the following product names and add them to the cart")
@@ -39,7 +39,7 @@ def enter_product(context):
         #
         context.page.click("(//div[@data-cy='title-recipe'])[1]")
         context.page_counter += 1
-        context.page.wait_for_timeout(2000)
+        context.page.wait_for_timeout(5000)
         print(
             "-------------- Going for page "
             + str(context.page_counter)
@@ -79,7 +79,7 @@ def verify_cart(context):
 def checkout(context):
     context.page.click("//input[@name='proceedToRetailCheckout']")
     context.page.wait_for_selector('//h1[contains(text(), "Sign in")]')
-    context.page.wait_for_timeout(4000)
+    context.page.wait_for_timeout(1000)
     print("Checked out")
     # context.ctx.close()
     # context.browser.close()

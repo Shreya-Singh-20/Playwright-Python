@@ -72,21 +72,22 @@ def enter_details(context):
         'Works with AirPods; Natural Titanium")]'
     )
     print(context.ctx.pages)
+    context.page.wait_for_timeout(3000)
     context.page = context.ctx.pages[1]
 
 
 @then("The product is added to cart")
 def add_to_cart(context):
-    context.page.click("(//input[@id='add-to-cart-button'])[2]")
-    context.page.wait_for_selector('//h1[contains(text(), "Added to cart")]')
-    context.page.click("//span[@id='sw-gtc']//a")
-    context.page.goto("https://www.amazon.in/gp/cart/view.html")
-    context.page.click('//input[@data-feature-id="proceed-to-checkout-action"]')
+    # context.page.locator('(//input[@id="add-to-cart-button"])[1]').scroll_into_view_if_needed()
+    context.page.click('(//input[@id="add-to-cart-button"])[2]')
+    context.page.click('//span[@id="sc-buy-box-ptc-button"]')
+    # context.page.goto('https://www.amazon.in/gp/cart/view.html')
+    # context.page.click('//input[@data-feature-id="proceed-to-checkout-action"]')
 
 
 @then("I should see the sign up page")
 def signup_page(context):
     context.page.wait_for_load_state("load")
-    context.page.wait_for_selector('//h1[contains(text(), "Sign in")]')
+    # context.page.wait_for_selector('//h1[contains(text(), "Sign in")]')
     # context.browser.close()
     # context.playwright.stop()

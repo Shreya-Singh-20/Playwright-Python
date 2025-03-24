@@ -60,8 +60,8 @@ def click_lenovo(context, middletab):
     # first_product.click()
 
     # print(context.ctx.pages)
+    context.page.wait_for_timeout(5000)
     context.page = context.ctx.pages[1]
-    # context.page.wait_for_timeout(3000)
     product_price = context.page.locator(
         '//div[@id="apex_desktop"]//span//span[@class="a-price-whole"]'
     ).inner_text()

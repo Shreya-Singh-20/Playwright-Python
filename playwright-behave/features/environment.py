@@ -5,7 +5,7 @@ import allure
 def before_all(context):
     context.playwright = sync_playwright().start()
     context.browser = context.playwright.chromium.launch(
-        headless=False, args=["--start-maximized"], slow_mo=500
+        headless=False, args=["--start-maximized"]
     )
 
 
@@ -17,7 +17,7 @@ def before_scenario(context, scenario):
 
 
 def after_scenario(context, scenario):
-    context.page.wait_for_timeout(30000)
+    context.page.wait_for_load_state(state="load")
     context.page.close()
     path = context.page.video.path()
     allure.attach.file(path, name=f"Video", attachment_type=allure.attachment_type.MP4)

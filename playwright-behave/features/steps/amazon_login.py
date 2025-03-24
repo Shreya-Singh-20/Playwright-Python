@@ -17,20 +17,16 @@ def user_go_to_login(context):
 
 @when("User enters mobile number and click continue")
 def user_go_to_login(context):
-    context.page.locator("//input[@name='email']").press_sequentially(
-        "+917607745307", delay=200
-    )
+    context.page.locator("//input[@name='email']").fill("+917607745307")
     context.page.click("//input[@type='submit']")
 
 
 @when("User enters password and click continue")
 def user_go_to_login(context):
     if context.page.locator('//div[@id="otp_box_label"]').is_visible():
-        context.page.wait_for_timeout(15000)
+        context.page.wait_for_timeout(2000)
     else:
-        context.page.locator('//input[@type="password"]').press_sequentially(
-            "Password123", delay=200
-        )
+        context.page.locator('//input[@type="password"]').fill("Password123")
         context.page.click('//input[@id="signInSubmit"]')
 
 

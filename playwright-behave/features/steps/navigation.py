@@ -8,7 +8,7 @@ def step_open_amazon(context):
     # context.browser = context.playwright.chromium.launch(headless=False, args=["--start-maximized"])
     # context.ctx = context.browser.new_context(no_viewport=True)
     # context.page = context.ctx.new_page()
-    context.page.goto("https://www.amazon.in", timeout=60000)
+    context.page.goto("https://www.amazon.in", wait_until="load")
 
 
 @when('I click on "{menu_option}" from the header')
